@@ -1,4 +1,6 @@
-﻿div.ex1 {
+﻿@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+div.ex1 {
     background-color: white;
     width: 300px;
     height: 300px;
@@ -6,5 +8,106 @@
 }
 
 .right {
+    float: right;
+}
+
+#page-content-wrapper {
+    background: #F5F5F5;
+}
+
+#select {
+    max-width: 450px;
+    margin-left: 20px;
+    margin-right: auto;
+    float: left;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 235px;
+    height: 300px;
+    margin-top: 5px;
+}
+
+#main {
+    margin-left: 20px;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.wrapper {
+    max-width: 770px;
+    margin-left: auto;
+    margin-right: -50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 5px;
+    width: 800px;
+    height: 800px;
+    float: right;
+}
+
+div.settings {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-gap: 5px;
+}
+
+div.settings label {
+    text-align: right;
+}
+
+div.settings label:after {
+    content: ":";
+}
+
+#container {
+    max-width: 550px;
+    margin: auto;
+    -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.21);
+    box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.21);
+}
+
+body {
+    font-family: 'Josefin Sans', cursive;
+}
+
+img {
+    border-radius: 50%;
+}
+
+.fas {
+    transition: all .2s ease-in-out;
+}
+
+.fas:hover {
+    transform: scale(1.1);
+}
+
+#dashboardwrapper {
+    max-width: 450px;
+    margin-left: 50px;
+    margin-right: 30px;
+    float: left;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 235px;
+    height: 300px;
+    margin-top: 20px;
+}
+
+#notificationwrapper {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#tickethistorywrapper {
+    max-width: 770px;
+    margin-left: auto;
+    margin-right: -50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 5px;
+    width: 800px;
+    height: 1000px;
     float: right;
 }

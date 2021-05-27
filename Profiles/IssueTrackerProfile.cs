@@ -10,8 +10,11 @@ namespace IssueTracker.Profiles
         {
             //Source - Target
             CreateMap<UserCreateDto, ApplicationUser>();
-            CreateMap<AssignUserDto, ApplicationUser>();
             CreateMap<AssignUserDto, Projects>();
+            CreateMap<AssignUserToTicketDto, Tickets>();
+            CreateMap<RoleDto, ApplicationUser>();
+            CreateMap<CommentDto, Tickets>();
+            CreateMap<EditProjectDto, Projects>();
         }
     }
 }

@@ -5,7 +5,7 @@ namespace IssueTracker.Dtos
     public class LoginDto
     {
         [Required]
-        public string username { get; set; }
+        public string ApplicationUserusername { get; set; }
 
         [Required]
         public string password { get; set; }
@@ -16,9 +16,9 @@ namespace IssueTracker.Dtos
 
         }
 
-        public LoginDto(string username, string password)
+        public LoginDto(string ApplicationUserusername, string password)
         {
-            this.username = username;
+            this.ApplicationUserusername = ApplicationUserusername;
             this.password = password;
         }
     }

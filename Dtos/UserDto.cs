@@ -5,15 +5,15 @@ namespace IssueTracker.Dtos
     public class UserDto
     {
         [Required]
-        public string ApplicationUserusername { get; set; }
+        public string ApplicationUserId { get; set; }
 
         public UserDto()
         {
         }
 
-        public UserDto(string ApplicationUserusername)
+        public UserDto(string ApplicationUserId)
         {
-            this.ApplicationUserusername = ApplicationUserusername;
+            this.ApplicationUserId = ApplicationUserId;
         }
     }
 }

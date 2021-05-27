@@ -6,7 +6,7 @@ using AutoMapper;
 using IssueTracker.Data;
 using IssueTracker.Dtos;
 using IssueTracker.Models;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,23 +16,19 @@ namespace IssueTracker.Controllers
     [Route("api/[controller]")]
     public class ProjectController : Controller
     {
-        //private readonly IIssueTrackerRepo _repository;
-        //private readonly UsersContext _context;
-        //private readonly IMapper _mapper;
+        private readonly IIssueTrackerRepo _repository;
+        private readonly UsersContext _context;
+        private readonly IMapper _mapper;
 
-        private readonly UserManager<Projects> _userManager;
-        //private readonly SignInManager<Projects> _signInManager;
-
-
-        public ProjectController(UserManager<Projects> userManager)
+        public ProjectController(UsersContext context, IMapper mapper, IIssueTrackerRepo repository)
         {
-            //_repository = repository;
-            _userManager = userManager;
-            //_signInManager = signInManager;
+            _repository = repository;
+            _context = context;
+            _mapper = mapper;
         }
 
-        // GET: api/values
-        /*[HttpGet]
+        [Authorize]
+        [HttpGet]
         public ActionResult<IEnumerable<Projects>> GetAllProjects()
         {
             var projects = _repository.GetAllProjects();
@@ -40,61 +36,40 @@ namespace IssueTracker.Controllers
             return Ok(projects);
         }
 
-        // POST api/values
+        [Authorize]
+        [HttpPost("getproject")]
+        public ActionResult GetProjectByName([FromBody] ProjectDto projectDto)
+        {
+            Projects project = _repository.GetProjectByName(projectDto.Projectsname);
+            return Ok(project);
+        }
+
+        [Authorize]
         [HttpPost]
-        public void Post([FromBody] Projects project)
+        public void CreateProject([FromBody] Projects project)
         {
             _repository.CreateProject(project);
             _repository.SaveChanges();
         }
-        */
 
-        /*[HttpPost]
-        public async Task<IActionResult> Register([FromBody] Projects model)
+        [Authorize]
+        [HttpPost("editproject")]
+        public void EditProject([FromBody] Projects projects)
         {
-            var user = new Projects()
-            {
-                Projectsname = model.Projectsname,
-                description = model.description,
-                UserName = model.Projectsname,
-                password = "password",
-            };
-
-            var result = await _userManager.CreateAsync(user, model.password);
-
-            if (result.Succeeded)
-            {
-                return RedirectToAction("Register");
-            }
-
-            return RedirectToAction("Register");
-        }
-        */
-
-
-        /*
-        [HttpPost("adduser")]
-        public ActionResult AddUser([FromBody] AssignUserDto assignUserDto)
-        {
-            ApplicationUser user = _repository.GetUserByName(assignUserDto.ApplicationUserusername);
-            Projects project = _repository.GetProjectByName(assignUserDto.Projectsname);
-            _mapper.Map(assignUserDto, user);
-            _mapper.Map(assignUserDto, project);
+            Projects project = _repository.GetProjectByName(projects.oldProjectsName);
+            project.Projectsname = projects.Projectsname;
+            project.description = projects.description;
             _repository.SaveChanges();
-            return NoContent();
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [Authorize]
+        [HttpPost("deleteproject")]
+        public void DeleteProject([FromBody] ProjectDto projectDto)
         {
-        }
+            var project = _repository.GetProjectByName(projectDto.Projectsname);
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            _repository.DeleteProject(project);
+            _repository.SaveChanges();
         }
-        */
     }
 }

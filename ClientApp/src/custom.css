@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -11,4 +13,8 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
 }

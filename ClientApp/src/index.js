@@ -15,6 +15,7 @@ ReactDOM.render(
   </BrowserRouter>,
   rootElement);
 
+window.React1 = require('react');
 
 registerServiceWorker();
 

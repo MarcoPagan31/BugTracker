@@ -8,16 +8,22 @@ namespace IssueTracker.Data
         bool SaveChanges();
         IEnumerable<ApplicationUser> GetAllUsers();
         IEnumerable<Projects> GetAllProjects();
+        IEnumerable<Tickets> GetAllTickets();
         ApplicationUser GetUserByName(string ApplicationUserusername);
         ApplicationUser GetUserByLoginInfo(string username, string password);
-        IEnumerable<ApplicationUser> GetUsersByProjectName(string Projectsname);
-        IEnumerable<Projects> GetProjectsByUserName(string ApplicationUserusername);
-        IEnumerable<Tickets> GetTicketsByProjectName(string Projectsname);
-        Projects GetProjectByName(string name);
-        void CreateUser(ApplicationUser cmd);
+        IEnumerable<ApplicationUser> GetUsersByProjectId(string ProjectsId);
+        IEnumerable<ApplicationUser> GetUsersByTicketId(string TicketsId);
+        IEnumerable<Projects> GetProjectsByUserId(string ApplicationUserId);
+        IEnumerable<Tickets> GetTicketsByProjectId(string ProjectsId);
+        IEnumerable<Tickets> GetTicketsByUserId(string ApplicationUserId);
+        IEnumerable<Notification> GetNotificationsByUserId(string ApplicationUserId);
+        Projects GetProjectByName(string Projectsname);
+        Tickets GetTicketByTitle(string title);
+        void CreateUser(ApplicationUser user);
         void CreateProject(Projects project);
         void CreateTicket(Tickets ticket);
-        //void UpdateCommand(Command cmd);
-        //void DeleteCommand(Command cmd);
+        void CreateNotification(Notification notification);
+        void DeleteProject(Projects project);
+        IEnumerable<ChangeLog> GetLogsByTicketTitle(string title);
     }
 }

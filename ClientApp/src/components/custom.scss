@@ -1,0 +1,59 @@
+﻿$enable-gradients: true;
+
+//@import "node_modules/bootstrap/scss/bootstrap";
+
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/root";
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/type";
+@import "node_modules/bootstrap/scss/images";
+@import "node_modules/bootstrap/scss/grid";
+  
+body {
+    .heading-css {
+        color: #ff0000
+    }
+}
+
+#sh {
+    color: white;
+}
+
+.bg-custom-1 {
+    background-color: #85144b;
+}
+
+.bg-custom-2 {
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+.box {
+    border-radius: 5px;
+}
+
+#subheaders {
+    border-radius: 5px;
+}
+
+#subheadersmain {
+    border-radius: 5px;
+    height: 60px;
+    width: 250px;
+}
+
+#assignedheaders {
+    margin-left: 35px;
+    border-radius: 5px;
+    height: 60px;
+    width: 250px;
+}
+
+#labels {
+    color: black;
+}
+
+#card {
+    border-radius: 5px;
+}
